@@ -22,11 +22,14 @@ const router = {
     this.go('home');
   },
   
-  showDetail(starId) {
+  showDetail(starId, fromRecommend = false) {
     const star = findStar(starId);
     if (!star) return;
     
+    currentStarId = starId; // 记录当前查看的明星
     const isFav = favorites.includes(starId);
+    const btnText = fromRecommend ? '看看TA的故事' : (isFav ? '❤️ 已收藏' : '🤍 收藏');
+    const btnAction = fromRecommend ? `toggleFavorite(${star.id}); this.textContent = favorites.includes(${star.id}) ? '❤️ 已收藏' : '🤍 收藏'; this.classList.toggle('active', favorites.includes(${star.id}))` : `toggleFavorite(${star.id})`;
     
     document.getElementById('detail-content').innerHTML = `
       <img class="detail-avatar" src="${star.avatar}" alt="${star.name}">
@@ -48,8 +51,8 @@ const router = {
         <p>${star.intro}</p>
       </div>
       
-      <button class="favorite-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite(${star.id})">
-        ${isFav ? '❤️ 已收藏' : '🤍 收藏'}
+      <button class="favorite-btn ${isFav ? 'active' : ''}" onclick="${btnAction}">
+        ${btnText}
       </button>
     `;
     
@@ -152,6 +155,9 @@ function toggleFavorite(starId) {
 
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
+  // 渲染今日推荐
+  renderTodayRecommend();
+  
   // 渲染初始列表
   renderStars();
   
@@ -187,3 +193,42 @@ function renderTopics() {
     </div>
   `).join('');
 }
+
+// 今日推荐
+function renderTodayRecommend() {
+  const container = document.getElementById('today-recommend');
+  const allStars = [...starsData.singers, ...starsData.actors];
+  
+  // 用日期作为种子，每天推荐不同的明星
+  const today = new Date();
+  const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+  const index = seed % allStars.length;
+  const star = allStars[index];
+  
+  // 格式化日期
+  const dateStr = `${today.getMonth() + 1}月${today.getDate()}日`;
+  
+  container.innerHTML = `
+    <div class="recommend-card" onclick="router.showDetail(${star.id}, true)">
+      <img class="recommend-avatar" src="${star.avatar}" alt="${star.name}">
+      <div class="recommend-info">
+        <div class="recommend-label">📅 ${dateStr} 今日推荐</div>
+        <div class="recommend-name">${star.name}</div>
+        <div class="recommend-desc">${star.intro.substring(0, 30)}...</div>
+      </div>
+    </div>
+  `;
+}
+
+// 更新今日推荐按钮文字（当从推荐进入详情再返回时）
+function updateRecommendButton() {
+  const btn = document.querySelector('.favorite-btn');
+  if (btn && btn.textContent === '看看TA的故事') {
+    const isFav = favorites.includes(currentStarId);
+    btn.classList.toggle('active', isFav);
+    btn.textContent = isFav ? '❤️ 已收藏' : '🤍 收藏';
+    btn.onclick = `toggleFavorite(${currentStarId})`;
+  }
+}
+
+let currentStarId = null;
