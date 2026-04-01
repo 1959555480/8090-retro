@@ -1,4 +1,4 @@
-/* 全局样式 - 大字版 */
+/* 全局样式 */
 * {
   margin: 0;
   padding: 0;
@@ -18,10 +18,9 @@ body {
   padding-bottom: 80px;
 }
 
-/* 页面切换 */
 .page {
   display: none;
-  padding: 16px;
+  padding: 20px;
   min-height: 100vh;
 }
 
@@ -32,15 +31,15 @@ body {
 /* 头部 */
 .header {
   text-align: center;
-  padding: 20px 0 16px;
+  padding: 24px 0 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
   border-radius: 0 0 20px 20px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .header h1 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
 }
 
@@ -50,207 +49,69 @@ body {
   margin-top: 6px;
 }
 
-/* 大按钮导航 - 适合老人点击 */
-.nav-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 0 16px;
-  margin-bottom: 20px;
-}
-
-.nav-btn {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: #fff;
-  border: none;
-  border-radius: 16px;
-  padding: 20px 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.nav-btn:active {
-  transform: scale(0.98);
-}
-
-.nav-btn-icon {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  flex-shrink: 0;
-}
-
-.nav-btn-text {
-  text-align: left;
-}
-
-.nav-btn-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  display: block;
-}
-
-.nav-btn-desc {
-  font-size: 14px;
-  color: #666;
-  margin-top: 4px;
-}
-
-/* 标签切换 */
-.tabs {
-  display: flex;
-  gap: 12px;
-  padding: 0 16px;
-  margin-bottom: 16px;
-}
-
-.tab {
-  flex: 1;
-  padding: 14px 0;
-  background: #fff;
-  border: 2px solid #ddd;
-  border-radius: 12px;
-  color: #666;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.tab.active {
-  background: #667eea;
-  border-color: #667eea;
-  color: #fff;
-}
-
-/* 明星列表 - 大卡片 */
-.star-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 0 16px;
+/* 今日推荐卡片 */
+.today-card {
+  padding: 0 10px;
 }
 
 .star-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
   background: #fff;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 
-.star-avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+.star-img {
+  width: 100%;
+  aspect-ratio: 1;
   object-fit: cover;
-  flex-shrink: 0;
-  border: 3px solid #667eea;
 }
 
-.star-info {
-  flex: 1;
+.star-content {
+  padding: 24px;
 }
 
 .star-name {
-  font-size: 22px;
-  font-weight: bold;
-  color: #333;
-}
-
-.star-title {
-  font-size: 16px;
-  color: #666;
-  margin-top: 4px;
-}
-
-/* 详情页 */
-.detail-header {
-  padding: 0 16px;
-  margin-bottom: 16px;
-}
-
-.back-btn {
-  background: #667eea;
-  border: none;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.detail-content {
-  padding: 0 16px;
-}
-
-.detail-avatar {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 20px;
-  display: block;
-  border-radius: 50%;
-  border: 5px solid #667eea;
-  object-fit: cover;
-}
-
-.detail-name {
-  text-align: center;
   font-size: 32px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 8px;
+  text-align: center;
 }
 
-.detail-title {
-  text-align: center;
+.star-title {
   font-size: 18px;
   color: #666;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 8px;
 }
 
-.detail-section {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+.star-section {
+  margin-top: 20px;
 }
 
-.detail-section h3 {
+.star-section h3 {
   font-size: 20px;
   color: #667eea;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.detail-section p {
+.star-section p {
   font-size: 18px;
   line-height: 1.8;
-  color: #333;
+  color: #444;
 }
 
 .favorite-btn {
   display: block;
   width: 100%;
   max-width: 300px;
-  margin: 24px auto;
+  margin: 24px auto 0;
   padding: 16px;
   background: #667eea;
   border: none;
   border-radius: 30px;
   color: #fff;
   font-size: 20px;
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -258,34 +119,7 @@ body {
   background: #4caf50;
 }
 
-/* 专题页 */
-.topic-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 0 16px;
-}
-
-.topic-card {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 16px;
-  padding: 24px;
-  cursor: pointer;
-}
-
-.topic-title {
-  font-size: 24px;
-  color: #fff;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.topic-desc {
-  font-size: 16px;
-  color: rgba(255,255,255,0.8);
-}
-
-/* 底部导航 - 大图标 */
+/* 底部导航 */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -296,7 +130,7 @@ body {
   display: flex;
   background: #fff;
   border-top: 1px solid #eee;
-  padding: 8px 0;
+  padding: 12px 0;
   z-index: 100;
 }
 
@@ -309,7 +143,6 @@ body {
   border: none;
   color: #999;
   cursor: pointer;
-  padding: 8px;
 }
 
 .nav-item.active {
@@ -317,7 +150,7 @@ body {
 }
 
 .nav-icon {
-  font-size: 28px;
+  font-size: 26px;
   margin-bottom: 4px;
 }
 
@@ -325,95 +158,47 @@ body {
   font-size: 16px;
 }
 
-/* 今日推荐 */
-.today-recommend {
-  padding: 0 16px;
-  margin-bottom: 20px;
+/* 收藏页 */
+.star-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 10px;
 }
 
-.recommend-card {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 16px;
-  padding: 20px;
+.star-list .star-card {
   display: flex;
+  align-items: center;
   gap: 16px;
+  padding: 16px;
   cursor: pointer;
 }
 
-.recommend-avatar {
-  width: 80px;
-  height: 80px;
+.star-list .star-img {
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #fff;
-  flex-shrink: 0;
+  aspect-ratio: unset;
 }
 
-.recommend-info {
+.star-list .star-content {
+  padding: 0;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #fff;
 }
 
-.recommend-label {
+.star-list .star-name {
+  text-align: left;
+  font-size: 22px;
+}
+
+.star-list .star-title {
+  text-align: left;
   font-size: 16px;
-  opacity: 0.9;
-  margin-bottom: 6px;
 }
 
-.recommend-name {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 6px;
-}
-
-.recommend-desc {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-/* 无内容提示 */
 .empty-tip {
   text-align: center;
   color: #999;
-  padding: 60px 0;
+  padding: 60px 20px;
   font-size: 18px;
-}
-
-/* 搜索框 */
-.search-box {
-  padding: 0 16px;
-  margin-bottom: 16px;
-}
-
-.search-input {
-  width: 100%;
-  padding: 16px 20px;
-  background: #fff;
-  border: 2px solid #ddd;
-  border-radius: 30px;
-  font-size: 18px;
-  outline: none;
-}
-
-.search-input:focus {
-  border-color: #667eea;
-}
-
-/* 返回顶部 */
-.back-top {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: #667eea;
-  border: none;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 28px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
