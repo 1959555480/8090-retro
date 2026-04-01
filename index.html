@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>8090年代回忆杀</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 首页 - 明星列表 -->
+    <div id="page-home" class="page active">
+      <header class="header">
+        <h1>🎬 8090年代回忆杀</h1>
+        <p class="subtitle">重现黄金时代的明星风采</p>
+      </header>
+      
+      <nav class="tabs">
+        <button class="tab active" data-type="all">全部</button>
+        <button class="tab" data-type="singer">歌手</button>
+        <button class="tab" data-type="actor">演员</button>
+      </nav>
+      
+      <div class="star-grid" id="star-list">
+        <!-- 明星卡片由 JS 渲染 -->
+      </div>
+    </div>
+
+    <!-- 详情页 -->
+    <div id="page-detail" class="page">
+      <div class="detail-header">
+        <button class="back-btn" onclick="router.back()">← 返回</button>
+      </div>
+      <div class="detail-content" id="detail-content">
+        <!-- 详情由 JS 渲染 -->
+      </div>
+    </div>
+
+    <!-- 专题页 -->
+    <div id="page-topic" class="page">
+      <div class="detail-header">
+        <button class="back-btn" onclick="router.back()">← 返回</button>
+      </div>
+      <div class="topic-list" id="topic-content">
+        <!-- 专题由 JS 渲染 -->
+      </div>
+    </div>
+
+    <!-- 我的收藏 -->
+    <div id="page-favorite" class="page">
+      <header class="header">
+        <h1>❤️ 我的收藏</h1>
+      </header>
+      <div class="star-grid" id="favorite-list">
+        <!-- 收藏列表由 JS 渲染 -->
+      </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-page="home">
+        <span class="nav-icon">🏠</span>
+        <span>首页</span>
+      </button>
+      <button class="nav-item" data-page="topic">
+        <span class="nav-icon">📚</span>
+        <span>专题</span>
+      </button>
+      <button class="nav-item" data-page="favorite">
+        <span class="nav-icon">❤️</span>
+        <span>收藏</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
